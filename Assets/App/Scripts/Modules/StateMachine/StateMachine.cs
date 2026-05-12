@@ -6,7 +6,7 @@
         
         public void ChangeState(IState newState)
         {
-            if (_currentState == newState || _currentState == null)
+            if (_currentState == newState || newState == null)
             {
                 return;
             }

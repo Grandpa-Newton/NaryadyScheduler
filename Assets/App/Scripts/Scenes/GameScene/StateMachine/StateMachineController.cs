@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using App.Scripts.Modules.StateMachine;
 using App.Scripts.Scenes.GameScene.StateMachine.States;
+using UnityEngine;
 using Zenject;
 
 namespace App.Scripts.Scenes.GameScene.StateMachine
@@ -24,14 +25,15 @@ namespace App.Scripts.Scenes.GameScene.StateMachine
                 _statesDictionary[state.GetType()] = state;
             }
             
-            ChangeState<MenuState>(); //TODO: точно ли тут?
+            ChangeStateByType<SelectMonthState>(); //TODO: точно ли тут?
         }
         
-        public void ChangeState<T>() where T : IState
+        public void ChangeStateByType<T>() where T : IState
         {
             if (_statesDictionary.TryGetValue(typeof(T), out var state))
             {
                 _stateMachine.ChangeState(state);
+                Debug.Log($"[StateMachine]: change state to {typeof(T).Name}");
             }
         }
     }

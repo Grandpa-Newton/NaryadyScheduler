@@ -9,6 +9,7 @@ namespace App.Scripts.Scenes.GameScene.SceneInitialization.Installers.Infrastruc
         public override void InstallBindings()
         {
             Container.Bind<IState>().To<MenuState>().AsSingle();
+            Container.Bind<IState>().To<SelectMonthState>().AsSingle();
         }
     }
 }

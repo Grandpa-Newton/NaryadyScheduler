@@ -4,6 +4,6 @@ namespace App.Scripts.Scenes.GameScene.StateMachine
 {
     public interface IStateMachineController
     {
-        public void ChangeState<T>() where T : IState;
+        public void ChangeStateByType<T>() where T : IState;
     }
 }
